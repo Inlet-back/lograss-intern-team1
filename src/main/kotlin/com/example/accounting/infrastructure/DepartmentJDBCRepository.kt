@@ -37,10 +37,9 @@ class DepartmentJDBCRepository(
 
     override fun insert(department: Department) {
         jooq.insertInto(DEPARTMENTS)
-            .set(DEPARTMENTS.ACCOUNT_CODE, department.code.value)
+            .set(DEPARTMENTS.DEPARTMENT_CODE, department.code.value)
             .set(DEPARTMENTS.NAME, department.name.value)
-            .set(DEPARTMENTS.ACCOUNT_TYPE, department.departmentType.toString())
-            .set(DEPARTMENTS.PARENT_ACCOUNT_CODE, department.parentCode?.value)
+            .set(DEPARTMENTS.PARENT_DEPARTMENT_CODE, department.parentCode?.value)
             .execute()
     }
 }

@@ -17,13 +17,12 @@ class Department(
         fun reconstruct(
             code: DepartmentCode,
             name: DepartmentName,
-            departmentType: 
             parentCode: DepartmentCode?,
         ): Department {
             return Department(code, name,  parentCode)
         }
 
-        private fun validate(parentDepartment: Department?, departmentType: DepartmentType) {
+        private fun validate(parentDepartment: Department?) {
             if (parentDepartment?.parentCode != null) {
                 throw RuntimeException("部署は第二階層までしか設定できません")
             }
