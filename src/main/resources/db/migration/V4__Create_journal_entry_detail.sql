@@ -3,19 +3,13 @@ CREATE TABLE journal_entry_detail
 (
     journal_entry_number CHAR(10) NOT NULL,
     account_code         VARCHAR(30) NOT NULL,
-    account_type         VARCHAR(10) NOT NULL,    -- 'debit' or 'credit'
+    journal_entry_type         VARCHAR(10) NOT NULL,    -- 'debit' or 'credit'
     amount               DECIMAL(15,2) CHECK (amount > 0) NOT NULL,
     
     FOREIGN KEY (journal_entry_number) REFERENCES journal_entry_header(journal_entry_number)
 );
 
--- -- インデックス作成
--- CREATE INDEX idx_journal_entry_detail_journal_number ON journal_entry_detail(journal_entry_number);
--- CREATE INDEX idx_journal_entry_header_date ON journal_entry_header(journal_entry_date);
-
--- 仕訳明細
-
-INSERT INTO journal_entry_detail (journal_entry_number, account_code, account_type, amount)
+INSERT INTO journal_entry_detail (journal_entry_number, account_code, journal_entry_type, amount)
 VALUES
 ('1000000000', '3001', 'debit', 1000),
 ('1000000000', '1001', 'credit', 1000),

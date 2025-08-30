@@ -11,7 +11,7 @@ class JournalEntryDate(
         }
 
         private fun validate(value: LocalDate) {
-            if (value.isBlank() || value.isEmpty()) {
+            if (value == null) {
                 throw RuntimeException("日付は空欄にできません")
             }
         }
