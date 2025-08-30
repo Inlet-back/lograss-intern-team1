@@ -49,3 +49,17 @@ export type Team = {
   id: TeamId;
   name: TeamName;
 };
+
+export type Department = {
+  code: DepartmentCode;
+  name: DepartmentName;
+  parentCode: DepartmentCode;
+};
+
+export type DepartmentCode = {
+  value: string;
+};
+
+export type DepartmentName = {
+  value: string;
+};

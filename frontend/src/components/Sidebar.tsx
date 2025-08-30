@@ -12,6 +12,12 @@ export default function Sidebar() {
           >
             科目一覧
           </Link>
+          <Link
+            href="/departments"
+            className="block no-underline text-sm text-gray-700 py-2 px-3 rounded hover:bg-gray-200"
+          >
+            部署一覧
+          </Link>
         </div>
       </div>
     </div>
