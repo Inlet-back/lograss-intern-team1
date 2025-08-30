@@ -11,6 +11,7 @@ class Department(
             name: DepartmentName,
             parentDepartment: Department?,
         ): Department {
+            validate(parentDepartment)
             return Department(code, name,  parentDepartment?.code)
         }
 
