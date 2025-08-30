@@ -8,10 +8,11 @@ CREATE TABLE departments
 );
 
 
-INSERT INTO departments(department_code, name, parent_department_code) VALUES ('1000', '東京営業部', NULL);
-INSERT INTO departments(department_code, name, parent_department_code) VALUES ('1001', '東京営業1課', '1000');
-INSERT INTO departments(department_code, name, parent_department_code) VALUES ('1002', '東京営業2課', '1000');
-
-INSERT INTO departments(department_code, name, parent_department_code) VALUES ('2000', '大阪営業部', NULL);
-INSERT INTO departments(department_code, name, parent_department_code) VALUES ('2001', '大阪営業1課', '2000');
-INSERT INTO departments(department_code, name, parent_department_code) VALUES ('2002', '大阪営業2課', '2000');
+INSERT INTO departments(department_code, name, parent_department_code) 
+VALUES 
+('1000', '東京営業部', NULL),
+('1001', '東京営業1課', '1000'),
+('1002', '東京営業2課', '1000'),
+('2000', '大阪営業部', NULL),
+('2001', '大阪営業1課', '2000'),
+('2002', '大阪営業2課', '2000');

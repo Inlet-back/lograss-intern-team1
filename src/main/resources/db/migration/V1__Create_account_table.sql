@@ -7,20 +7,23 @@ CREATE TABLE accounts
     PRIMARY KEY (account_code)
 );
 
+
+INSERT INTO accounts(account_code, name, account_type, parent_account_code)
+VALUES
 -- 収益の科目
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('1000', '営業利益', 'PROFIT', NULL);
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('1001', '売上高', 'PROFIT', '1000');
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('1010', '営業外利益', 'PROFIT', NULL);
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('1011', '預金利息', 'PROFIT', '1010');
+('1000', '営業利益', 'PROFIT', NULL),
+('1001', '売上高', 'PROFIT', '1000'),
+('1010', '営業外利益', 'PROFIT', NULL),
+('1011', '預金利息', 'PROFIT', '1010'),
 -- 費用の科目
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('2000', '経費', 'LOSS', NULL);
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('2001', '給料', 'LOSS', '2000');
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('2002', '交通費', 'LOSS', '2000');
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('2003', '支払手数料', 'LOSS', '2000');
+('2000', '経費', 'LOSS', NULL),
+('2001', '給料', 'LOSS', '2000'),
+('2002', '交通費', 'LOSS', '2000'),
+('2003', '支払手数料', 'LOSS', '2000'),
 -- 資産の科目
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('3000', '流動資産', 'ASSET', NULL);
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('3001', '現金', 'ASSET', '3000');
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('3002', '預金', 'ASSET', '3000');
+('3000', '流動資産', 'ASSET', NULL),
+('3001', '現金', 'ASSET', '3000'),
+('3002', '預金', 'ASSET', '3000'),
 -- 負債の科目
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('4000', '流動負債', 'LIABILITY', NULL);
-INSERT INTO accounts(account_code, name, account_type, parent_account_code) VALUES ('4001', '借入金', 'LIABILITY', '4000');
+('4000', '流動負債', 'LIABILITY', NULL),
+('4001', '借入金', 'LIABILITY', '4000');
