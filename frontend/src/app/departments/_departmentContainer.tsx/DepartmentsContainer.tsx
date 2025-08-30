@@ -30,7 +30,7 @@ export default function DepartmentsContainer({
             >
               <td className="p-4">{department.code.value}</td>
               <td className="p-4">{department.name.value}</td>
-              <td className="p-4">{department.parentCode.value || ""}</td>
+              <td className="p-4">{department.parentCode?.value || ""}</td>
             </tr>
           ))}
         </tbody>
