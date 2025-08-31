@@ -18,25 +18,35 @@ class ListJournalEntryUseCase(
     fun execute(): List<ListJournalEntryResponse> {
         val journalEntries = journalEntryRepository.list()
 
-        var responses: MutableList<ListJournalEntryResponse> = mutableListOf()
+        // var responses: MutableList<ListJournalEntryResponse> = mutableListOf()
 
-        for (entry in journalEntries) {
-            val response = ListJournalEntryResponse(
-                date = entry.date,
-                journalEntryNumber = entry.number,
-                departmentName = entry.department.name,
-                details = entry.details.map { detail ->
-                    JournalDetailResponse(
-                        journalEntryType = detail.journalEntryType,
-                        accountName = detail.account.name,
-                        amount = detail.amount
-                    )
-                }
-            )
-            responses.add(response)
-        }
+        // for (entry in journalEntries) {
+        //     val response = ListJournalEntryResponse(
+        //         date = entry.date,
+        //         journalEntryNumber = entry.number,
+        //         departmentName = entry.department.name,
+        //         details = entry.details.map { detail ->
+        //             JournalDetailResponse(
+        //                 journalEntryType = detail.journalEntryType,
+        //                 accountName = detail.account.name,
+        //                 amount = detail.amount
+        //             )
+        //         }
+        //     )
+        //     responses.add(response)
+        // }
 
-        return responses
+        // return responses
+        return journalEntries.map { ListJournalEntryResponse(
+            date = it.date,
+            journalEntryNumber = it.number,
+            departmentName = it.department.name,
+            details = it.details.map { detail -> JournalDetailResponse(
+                journalEntryType = detail.journalEntryType,
+                accountName = detail.account.name,
+                amount = detail.amount
+            )}
+        )}
     }
 }
 
