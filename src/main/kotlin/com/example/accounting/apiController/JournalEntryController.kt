@@ -5,6 +5,7 @@ import com.example.accounting.usecase.ListJournalEntryUseCase
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import com.example.accounting.usecase.ListJournalEntryResponse
 
 @RestController("apiJournalEntryController")
 @RequestMapping("/api")
@@ -13,7 +14,7 @@ class JournalEntryController(
 ) {
 
     @GetMapping("/journal-entries")
-    fun list(): ResponseEntity<List<JournalEntryHeader>> {
+    fun list(): ResponseEntity<List<ListJournalEntryResponse>> {
         val journalEntries = listUseCase.execute()
         return ResponseEntity.ok(journalEntries)
     }
