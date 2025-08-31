@@ -63,3 +63,36 @@ export type DepartmentCode = {
 export type DepartmentName = {
   value: string;
 };
+
+// Journal Entry Value Objects (Kotlinのドメインモデルに合わせた型定義)
+export type JournalEntryDate = {
+  value: string;
+};
+
+export type JournalEntryNumber = {
+  value: string;
+};
+
+export type JournalEntryAmount = {
+  value: number;
+};
+
+export enum JournalEntryType {
+  DEBIT = "DEBIT",
+  CREDIT = "CREDIT",
+}
+
+// Journal Entry Detail
+export type JournalEntryDetail = {
+  account: Account;
+  journalEntryType: JournalEntryType;
+  amount: JournalEntryAmount;
+};
+
+// Journal Entry Header (メインの仕訳エンティティ)
+export type JournalEntry = {
+  date: JournalEntryDate;
+  number: JournalEntryNumber;
+  department: Department;
+  details: JournalEntryDetail[];
+};
