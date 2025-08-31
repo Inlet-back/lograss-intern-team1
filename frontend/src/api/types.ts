@@ -84,7 +84,7 @@ export enum JournalEntryType {
 
 // Journal Entry Detail
 export type JournalEntryDetail = {
-  account: Account;
+  accountName: AccountName;
   journalEntryType: JournalEntryType;
   amount: JournalEntryAmount;
 };
@@ -92,7 +92,7 @@ export type JournalEntryDetail = {
 // Journal Entry Header (メインの仕訳エンティティ)
 export type JournalEntry = {
   date: JournalEntryDate;
-  number: JournalEntryNumber;
-  department: Department;
+  journalEntryNumber: JournalEntryNumber;
+  departmentName: DepartmentName;
   details: JournalEntryDetail[];
 };

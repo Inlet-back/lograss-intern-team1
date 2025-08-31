@@ -38,26 +38,26 @@ export default function JournalEntry({ journalEntries }: JournalEntryProps) {
 
             return Array.from({ length: maxRows }, (_, index) => (
               <tr
-                key={`${journalEntry.number.value}-${index}`}
+                key={`${journalEntry.journalEntryNumber.value}-${index}`}
                 className="border-b border-gray-300"
               >
                 <td className="p-3">
                   {index === 0 ? journalEntry.date.value : ""}
                 </td>
                 <td className="p-3">
-                  {index === 0 ? journalEntry.number.value : ""}
+                  {index === 0 ? journalEntry.journalEntryNumber.value : ""}
                 </td>
                 <td className="p-3">
-                  {index === 0 ? journalEntry.department.name.value : ""}
+                  {index === 0 ? journalEntry.departmentName.value : ""}
                 </td>
                 <td className="p-3">
-                  {debitDetails[index]?.account.name.value || ""}
+                  {debitDetails[index]?.accountName.value || ""}
                 </td>
                 <td className="p-3">
                   {debitDetails[index]?.amount.value.toLocaleString() || ""}
                 </td>
                 <td className="p-3">
-                  {creditDetails[index]?.account.name.value || ""}
+                  {creditDetails[index]?.accountName.value || ""}
                 </td>
                 <td className="p-3">
                   {creditDetails[index]?.amount.value.toLocaleString() || ""}
