@@ -29,7 +29,7 @@ class JournalEntryHeader(
         }
     
      private fun validate(department: Department, details: List<JournalEntryDetail>) {
-            if (department.parentCode != null) {
+            if (department.parentCode == null) {
                 throw RuntimeException("親部署は部署として設定できません")
             }
             if(!checkDetailAmount(details)){

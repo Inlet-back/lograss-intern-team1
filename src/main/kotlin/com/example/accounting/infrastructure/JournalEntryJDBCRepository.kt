@@ -14,7 +14,7 @@ import jooq.tables.Departments.DEPARTMENTS
 import jooq.tables.Accounts.ACCOUNTS
 import org.jooq.DSLContext
 import org.springframework.stereotype.Repository
-import JournalEntryDetail
+
 
 @Repository
 class JournalEntryJDBCRepository(
