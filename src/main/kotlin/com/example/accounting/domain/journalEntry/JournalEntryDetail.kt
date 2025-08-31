@@ -26,13 +26,13 @@ class JournalEntryDetail (
         }
     }
       private fun validate(account: Account) {
-            if (account.parentCode != null) {
+            if (account.parentCode == null) {
                 throw RuntimeException("親科目は科目として設定できません")
             }
          
         }
 
-        public fun getSignedAmount(): Int {
+        fun getSignedAmount(): Int {
             if (journalEntryType == JournalEntryType.DEBIT) {
                 return amount.value
             }

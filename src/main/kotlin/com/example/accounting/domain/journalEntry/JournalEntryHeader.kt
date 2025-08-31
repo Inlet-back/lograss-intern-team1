@@ -29,7 +29,7 @@ class JournalEntryHeader(
         }
     
      private fun validate(department: Department, details: List<JournalEntryDetail>) {
-            if (department.parentCode == null) {
+            if(department.parentCode == null) {
                 throw RuntimeException("親部署は部署として設定できません")
             }
             if(!checkDetailAmount(details)){
@@ -41,7 +41,7 @@ class JournalEntryHeader(
             if(details.isEmpty())
                 return  false
             var sum: Int = 0
-            for (detail in details) {
+            for(detail in details) {
                 sum += detail.getSignedAmount()
             }
 
