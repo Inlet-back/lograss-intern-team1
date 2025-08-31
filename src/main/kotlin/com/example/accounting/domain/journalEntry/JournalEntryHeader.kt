@@ -1,30 +1,30 @@
 package com.example.accounting.domain.journalEntry
 import JournalEntryDetail
-import com.example.accounting.domain.department.DepartmentCode
+import com.example.accounting.domain.department.Department
 
 class JournalEntryHeader(
     val date: JournalEntryDate,
     val number: JournalEntryNumber,
-    val departmentCode: DepartmentCode,
+    val department: Department,
     val detail: List<JournalEntryDetail>,
 ) {
     companion object {
         fun create(
             date: JournalEntryDate,
             number: JournalEntryNumber,
-            departmentCode: DepartmentCode,
+            department: Department,
             detail: List<JournalEntryDetail>,
         ): JournalEntryHeader {
-            return JournalEntryHeader(date, number, departmentCode, detail)
+            return JournalEntryHeader(date, number, department, detail)
         }
 
         fun reconstruct(
             date: JournalEntryDate,
             number: JournalEntryNumber,
-            departmentCode: DepartmentCode,
+            department: Department,
             detail: List<JournalEntryDetail>,
         ): JournalEntryHeader {
-            return JournalEntryHeader(date, number, departmentCode, detail)
+            return JournalEntryHeader(date, number, department, detail)
         }
     }
 }
