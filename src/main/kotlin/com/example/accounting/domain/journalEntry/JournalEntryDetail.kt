@@ -14,6 +14,7 @@ class JournalEntryDetail (
             journalEntryType:   JournalEntryType,
             amount:             JournalEntryAmount,
         ): JournalEntryDetail {
+            validate(account)
             return JournalEntryDetail(account, journalEntryType, amount)
         }
 
