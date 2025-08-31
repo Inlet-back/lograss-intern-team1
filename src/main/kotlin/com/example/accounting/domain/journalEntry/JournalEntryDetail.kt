@@ -4,29 +4,40 @@ import com.example.accounting.domain.journalEntry.JournalEntryNumber
 import com.example.accounting.domain.journalEntry.JournalEntryType
 
 class JournalEntryDetail (
-    val journalEntryNumber: JournalEntryNumber,
     val account:       Account,
     val journalEntryType:   JournalEntryType,
     val amount:             JournalEntryAmount,
 ) {
     companion object {
         fun create(
-            journalEntryNumber: JournalEntryNumber,
             account:       Account,
             journalEntryType:   JournalEntryType,
             amount:             JournalEntryAmount,
         ): JournalEntryDetail {
-            return JournalEntryDetail(journalEntryNumber, account, journalEntryType, amount)
+            return JournalEntryDetail(account, journalEntryType, amount)
         }
 
         fun reconstruct(
-            journalEntryNumber: JournalEntryNumber,
             account:            Account,
             journalEntryType:   JournalEntryType,
             amount:             JournalEntryAmount,
         ): JournalEntryDetail {
-            return JournalEntryDetail(journalEntryNumber, account, journalEntryType, amount)
+            return JournalEntryDetail(account, journalEntryType, amount)
         }
     }
+      private fun validate(account: Account) {
+            if (account.parentCode != null) {
+                throw RuntimeException("親科目は科目として設定できません")
+            }
+         
+        }
+
+        public fun getSignedAmount(): Int {
+            if (journalEntryType == JournalEntryType.DEBIT) {
+                return amount.value
+            }
+            return -amount.value
+        }
+
 
 }
