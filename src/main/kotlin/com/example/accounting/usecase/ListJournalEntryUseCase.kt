@@ -5,7 +5,7 @@ import com.example.accounting.domain.journalEntry.JournalEntryRepository
 import org.springframework.stereotype.Service
 
 @Service
-class ListJournalUseCase(
+class ListJournalEntryUseCase(
     private val journalEntryRepository: JournalEntryRepository,
 ) {
     fun execute(): List<JournalEntryHeader> {
