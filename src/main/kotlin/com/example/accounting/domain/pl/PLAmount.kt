@@ -4,15 +4,15 @@ class PLAmount (
     val amount: Int,
 ) {
     companion object {
-        fun of(profitAmount: ProfitAmount, lossAmount: LossAmount): PLAmount {
+        fun of(profitAmount: Int, lossAmount: Int): PLAmount {
             val amount = calcAmount(profitAmount, lossAmount)
 
             return PLAmount(amount)
         }
-        private fun calcAmount (profitAmount: ProfitAmount, lossAmount: LossAmount): Int {
+        private fun calcAmount (profitAmount: Int, lossAmount: Int): Int {
             
             
-            return profitAmount.getAmount() - lossAmount.getAmount()
+            return profitAmount - lossAmount
         }
     }
 

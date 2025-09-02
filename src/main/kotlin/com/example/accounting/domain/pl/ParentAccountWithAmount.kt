@@ -6,13 +6,13 @@ import com.example.accounting.domain.journalEntry.JournalEntryAmount
 
 class ParentAccountWithAmount (
     val accountName: AccountName,
-    val amount:      JournalEntryAmount,
+    val amount:      PLAccountAmount,
     val accountType: AccountType,
 ) {
     companion object {
         fun create (
             accountName: AccountName,
-            amount:      JournalEntryAmount,
+            amount:      PLAccountAmount,
             accountType: AccountType,
         ): ParentAccountWithAmount {
             return ParentAccountWithAmount(accountName, amount, accountType)
@@ -20,7 +20,7 @@ class ParentAccountWithAmount (
 
         fun reconstruct (
             accountName: AccountName,
-            amount:      JournalEntryAmount,
+            amount:      PLAccountAmount,
             accountType: AccountType,
         ): ParentAccountWithAmount {
             return ParentAccountWithAmount(accountName, amount, accountType)

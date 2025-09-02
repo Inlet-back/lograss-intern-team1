@@ -14,7 +14,7 @@ class AccountJDBCRepository(
             .where(ACCOUNTS.ACCOUNT_CODE.eq(code.value))
             .fetchOne()
             ?.let { accountRecord ->
-                Account.create(
+                Account.reconstruct(
                     AccountCode.of(accountRecord[ACCOUNTS.ACCOUNT_CODE]),
                     AccountName.of(accountRecord[ACCOUNTS.NAME]),
                     AccountType.of(accountRecord[ACCOUNTS.ACCOUNT_TYPE]),
