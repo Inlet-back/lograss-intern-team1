@@ -58,7 +58,8 @@ class PL(
         }
         private fun makeParentAccountWithAmountList(accountWithAmountList: MutableList<AccountWithAmount>, accountList: List<Account>): MutableList<ParentAccountWithAmount> {
             var parentAccountWithAmountList: MutableList<ParentAccountWithAmount> = mutableListOf()
-            
+            val childrenGrouped = accountWithAmountList.groupBy { it.parentCode }
+
             for(account in accountList) {
                 
                 if(account.parentCode != null) {
@@ -70,6 +71,7 @@ class PL(
                     continue
                 }
                 
+                val children = childrenGrouped[account.code].orEmpty()
                 var sumAmount: Int = 0
 
                 // 該当する親科目の子科目の金額を合計
@@ -83,7 +85,7 @@ class PL(
 
 
                 // Insert made list
-                val parentAccountWithAmount = ParentAccountWithAmount.create(account.name, PLAccountAmount.of(sumAmount), account.accountType)
+                val parentAccountWithAmount = ParentAccountWithAmount.create(account.name, PLAccountAmount.of(sumAmount), account.accountType, children)
                 parentAccountWithAmountList.add(parentAccountWithAmount)
             }
             return parentAccountWithAmountList
@@ -119,7 +121,7 @@ class PL(
 
 
                 // Insert made list
-                val accountWithAmount = AccountWithAmount.create(account.name, PLAccountAmount.of(sumAmount))
+                val accountWithAmount = AccountWithAmount.create(account.parentCode, account.name, PLAccountAmount.of(sumAmount))
                 accountWithAmountList.add(accountWithAmount)
             }
 
