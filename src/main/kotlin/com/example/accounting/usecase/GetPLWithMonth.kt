@@ -5,9 +5,11 @@ import com.example.accounting.domain.pl.PLRepository
 import org.springframework.stereotype.Service
 
 @Service
-class GetPLUseCase(
+class GetPLWithMonthUseCase(
     private val plRepository: PLRepository,
 ) {
-    fun execute(): PL = plRepository.getPL()
-    
+    fun execute(year: Int, month: Int): PL {
+        require(month in 1..12) { "month は 1..12" }
+        return plRepository.getPLWithMonth(year, month)
+    }
 }
